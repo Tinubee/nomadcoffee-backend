@@ -2,7 +2,8 @@
   "name": "nomadcoffee",
   "version": "1.0.0",
   "engines": {
-    "node": "16.13.2"
+    "node": "16.13.2",
+    "npm": "8.1.2"
   },
   "description": "",
   "scripts": {
