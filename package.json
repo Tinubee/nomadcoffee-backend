@@ -9,7 +9,7 @@
   "scripts": {
     "preinstall": "npx npm-force-resolutions",
     "dev": "nodemon --exec babel-node src/server --delay 2",
-    "migrate": "npx prisma migrate dev",
+    "migrate": "npx prisma migrate dev --previw-feature",
     "studio": "npx prisma studio",
     "build": "babel src --out-dir build",
     "start": "node build/server"
