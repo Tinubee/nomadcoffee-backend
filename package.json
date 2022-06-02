@@ -1,7 +1,9 @@
 {
   "name": "nomadcoffee",
   "version": "1.0.0",
-  "engines": {},
+  "engines": {
+    "node": "16.13.2"
+  },
   "description": "",
   "scripts": {
     "preinstall": "npx npm-force-resolutions",
