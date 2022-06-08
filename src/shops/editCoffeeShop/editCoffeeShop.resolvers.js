@@ -36,6 +36,16 @@ export default {
 
           if (file) {
             fileUrl = await uploadToS3(file, loggedInUser.id, "uploads");
+            await client.coffeeShopPhoto.create({
+              data: {
+                url: fileUrl,
+                shop: {
+                  connect: {
+                    id,
+                  },
+                },
+              },
+            });
           }
 
           await client.coffeeShop.update({
@@ -51,13 +61,13 @@ export default {
                   connectOrCreate: categoriesObjs,
                 },
               }),
-              ...(fileUrl !== null && {
-                photos: {
-                  update: {
-                    url: fileUrl,
-                  },
-                },
-              }),
+              // ...(fileUrl !== null && {
+              //   photos: {
+              //     connectOrCreate: {
+              //       url: fileUrl,
+              //     },
+              //   },
+              // }),
             },
           });
           return {
