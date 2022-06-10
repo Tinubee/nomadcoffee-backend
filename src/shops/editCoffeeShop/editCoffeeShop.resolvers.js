@@ -6,11 +6,8 @@ import { protectedResolvers } from "../../users/users.utils";
 export default {
   Mutation: {
     editCoffeeShop: protectedResolvers(
-      async (
-        _,
-        { id, name, caption, latitude, longitude, file },
-        { loggedInUser }
-      ) => {
+      async (_, { id, name, caption }, { loggedInUser }) => {
+        console.log(id, name, caption);
         try {
           const oldData = await client.coffeeShop.findFirst({
             where: {
@@ -28,25 +25,25 @@ export default {
 
           //console.log(oldData);
 
-          let fileUrl = null;
+          // let fileUrl = null;
           let categoriesObjs = [];
           if (caption) {
             categoriesObjs = processCategories(caption);
           }
 
-          if (file) {
-            fileUrl = await uploadToS3(file, loggedInUser.id, "uploads");
-            await client.coffeeShopPhoto.create({
-              data: {
-                url: fileUrl,
-                shop: {
-                  connect: {
-                    id,
-                  },
-                },
-              },
-            });
-          }
+          // if (file) {
+          //   fileUrl = await uploadToS3(file, loggedInUser.id, "uploads");
+          //   await client.coffeeShopPhoto.create({
+          //     data: {
+          //       url: fileUrl,
+          //       shop: {
+          //         connect: {
+          //           id,
+          //         },
+          //       },
+          //     },
+          //   });
+          // }
 
           await client.coffeeShop.update({
             where: {
