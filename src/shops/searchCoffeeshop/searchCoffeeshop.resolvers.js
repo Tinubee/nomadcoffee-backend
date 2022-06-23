@@ -1,16 +1,12 @@
-import { client } from "../../client";
+import client from "../../client";
 
 export default {
   Query: {
-    searchCoffeeshop: (_, { keyword }) =>
+    searchCoffeeShops: async (_, { keyword }) =>
       client.coffeeShop.findMany({
         where: {
           OR: [
-            {
-              name: {
-                contains: keyword,
-              },
-            },
+            { name: { contains: keyword } },
             {
               categories: {
                 some: {
