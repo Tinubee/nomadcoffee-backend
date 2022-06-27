@@ -5,6 +5,7 @@ export default gql`
     ok: Boolean!
     token: String
     error: String
+    username: String
   }
 
   type Mutation {

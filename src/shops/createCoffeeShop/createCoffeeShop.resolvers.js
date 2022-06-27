@@ -18,7 +18,7 @@ export default {
         }
 
         let fileUrl = null;
-        console.log(file);
+        //console.log(file);
         if (file) {
           fileUrl = await uploadToS3(file, loggedInUser.id, "uploads");
         }

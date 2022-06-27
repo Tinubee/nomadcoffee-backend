@@ -13,4 +13,15 @@ export default {
         },
       }),
   },
+  CoffeeShop: {
+    isMine: (userId, _, { loggedInUser }) => {
+      if (!loggedInUser) {
+        console.log("not logged in");
+        return false;
+      }
+      //console.log(loggedInUser.id);
+      //console.log(userId?.userId);
+      return userId?.userId === loggedInUser.id;
+    },
+  },
 };

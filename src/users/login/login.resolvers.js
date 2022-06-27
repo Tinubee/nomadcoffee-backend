@@ -25,6 +25,7 @@ export default {
       return {
         ok: true,
         token,
+        username,
       };
     },
   },

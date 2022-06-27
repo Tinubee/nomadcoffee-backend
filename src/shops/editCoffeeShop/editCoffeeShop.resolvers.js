@@ -7,7 +7,7 @@ export default {
   Mutation: {
     editCoffeeShop: protectedResolvers(
       async (_, { id, name, caption }, { loggedInUser }) => {
-        console.log(id, name, caption);
+        //console.log(id, name, caption);
         try {
           const oldData = await client.coffeeShop.findFirst({
             where: {

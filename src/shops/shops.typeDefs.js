@@ -11,6 +11,7 @@ export default gql`
     longitude: String
     photos: [CoffeeShopPhoto]
     categories: [Category]
+    isMine: Boolean!
     createdAt: String!
     updatedAt: String!
   }
